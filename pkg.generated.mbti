@@ -1,0 +1,237 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "sennenki/js"
+
+// Values
+pub fn run_async(async () -> Unit noraise) -> Unit
+
+// Errors
+
+// Types and methods
+#external
+pub type Any
+pub fn Any::is_bigint(Self) -> Bool
+pub fn Any::is_boolean(Self) -> Bool
+pub fn Any::is_function(Self) -> Bool
+pub fn Any::is_null(Self) -> Bool
+pub fn Any::is_number(Self) -> Bool
+pub fn Any::is_object(Self) -> Bool
+pub fn Any::is_object_or_null(Self) -> Bool
+pub fn Any::is_string(Self) -> Bool
+pub fn Any::is_symbol(Self) -> Bool
+pub fn Any::is_undefined(Self) -> Bool
+pub fn[T] Any::new(T) -> Self
+pub fn[T] Any::unsafe_as(Self) -> T
+pub impl Compare for Any
+pub impl Eq for Any
+pub impl Show for Any
+
+#external
+pub type Null
+pub fn Null::new() -> Self
+pub impl Compare for Null
+pub impl Default for Null
+pub impl Eq for Null
+pub impl Hash for Null
+pub impl Show for Null
+
+#external
+pub type Nullable[T]
+pub fn[T] Nullable::from_nullish(Nullish[T]) -> Self[T]
+pub fn[T] Nullable::from_option(T?) -> Self[T]
+pub fn[T] Nullable::is_null(Self[T]) -> Bool
+pub fn[T] Nullable::new(T) -> Self[T]
+pub fn[T] Nullable::null() -> Self[T]
+pub fn[T] Nullable::to_option(Self[T]) -> T?
+pub fn[T] Nullable::unwrap(Self[T]) -> T
+pub impl[T : Compare] Compare for Nullable[T]
+pub impl[T : Eq] Eq for Nullable[T]
+pub impl[T : Hash] Hash for Nullable[T]
+pub impl[T : Show] Show for Nullable[T]
+
+#external
+pub type Nullish[T]
+pub fn[T] Nullish::from_nullable(Nullable[T]) -> Self[T]
+pub fn[T] Nullish::from_option(T?) -> Self[T]
+pub fn[T] Nullish::is_defined(Self[T]) -> Bool
+pub fn[T] Nullish::is_null(Self[T]) -> Bool
+pub fn[T] Nullish::is_null_or_undefined(Self[T]) -> Bool
+pub fn[T] Nullish::is_undefined(Self[T]) -> Bool
+pub fn[T] Nullish::new(T) -> Self[T]
+pub fn[T] Nullish::null() -> Self[T]
+pub fn[T] Nullish::to_nullable(Self[T]) -> Nullable[T]
+pub fn[T] Nullish::to_option(Self[T]) -> T?
+pub fn[T] Nullish::undefined() -> Self[T]
+pub fn[T] Nullish::unwrap(Self[T]) -> T
+pub impl[T : Compare] Compare for Nullish[T]
+pub impl[T : Eq] Eq for Nullish[T]
+pub impl[T : Hash] Hash for Nullish[T]
+pub impl[T : Show] Show for Nullish[T]
+
+#external
+pub type Object
+pub fn[K : StringOrSymbol, T] Object::from_pair(K, T) -> Self
+#alias("_[_]")
+pub fn[K : StringOrSymbol, T] Object::get(Self, K) -> T
+pub fn Object::new() -> Self
+#alias("_[_]=_")
+pub fn[K : StringOrSymbol, T] Object::set(Self, K, T) -> Unit
+pub fn[T] Object::unsafe_as(Self) -> T
+pub impl Compare for Object
+pub impl Default for Object
+pub impl Eq for Object
+pub impl Show for Object
+
+#external
+pub type Promise[T]
+pub fn[T] Promise::all(Array[Self[T]]) -> Self[Array[T]]
+pub fn[T] Promise::any(Array[Self[T]]) -> Self[T]
+pub fn[T, U] Promise::catch_(Self[T], (Any) -> U) -> Self[U]
+pub fn[T] Promise::finally_(Self[T], () -> Unit) -> Self[T]
+pub fn[T, U] Promise::flat_except(Self[T], (Any) -> Self[U]) -> Self[U]
+pub fn[T, U] Promise::flat_map(Self[T], (T) -> Self[U]) -> Self[U]
+pub fn[T] Promise::flatten(Self[Self[T]]) -> Self[T]
+pub fn[T] Promise::from_async(async () -> T) -> Self[T]
+pub fn[T, U] Promise::map(Self[T], (T) -> U) -> Self[U]
+pub fn[T] Promise::new(((T) -> Unit, (Any) -> Unit) -> Unit) -> Self[T]
+pub fn[T] Promise::race(Array[Self[T]]) -> Self[T]
+pub fn[T] Promise::reject(Any) -> Self[T]
+pub fn[T] Promise::resolve(T) -> Self[T]
+pub fn[T] Promise::with_resolvers() -> Resolvers[T]
+
+pub struct Resolvers[T] {
+  promise : Promise[T]
+  resolve : (T) -> Unit
+  reject : (Any) -> Unit
+}
+
+#external
+pub type Symbol
+pub fn Symbol::from_string_existing(String) -> Self
+pub fn Symbol::from_string_fresh(String) -> Self
+pub fn Symbol::key(Self) -> String?
+pub fn Symbol::new() -> Self
+pub impl Compare for Symbol
+pub impl Eq for Symbol
+pub impl Show for Symbol
+pub impl StringOrSymbol for Symbol
+
+type U2[T1, T2]
+pub fn[T1, T2] U2::from_t1(T1) -> Self[T1, T2]
+pub fn[T1, T2] U2::from_t2(T2) -> Self[T1, T2]
+pub fn[T1, T2] U2::unsafe_as_t1(Self[T1, T2]) -> T1
+pub fn[T1, T2] U2::unsafe_as_t2(Self[T1, T2]) -> T2
+
+type U3[T1, T2, T3]
+pub fn[T1, T2, T3] U3::from_t1(T1) -> Self[T1, T2, T3]
+pub fn[T1, T2, T3] U3::from_t2(T2) -> Self[T1, T2, T3]
+pub fn[T1, T2, T3] U3::from_t3(T3) -> Self[T1, T2, T3]
+pub fn[T1, T2, T3] U3::unsafe_as_t1(Self[T1, T2, T3]) -> T1
+pub fn[T1, T2, T3] U3::unsafe_as_t2(Self[T1, T2, T3]) -> T2
+pub fn[T1, T2, T3] U3::unsafe_as_t3(Self[T1, T2, T3]) -> T3
+
+type U4[T1, T2, T3, T4]
+pub fn[T1, T2, T3, T4] U4::from_t1(T1) -> Self[T1, T2, T3, T4]
+pub fn[T1, T2, T3, T4] U4::from_t2(T2) -> Self[T1, T2, T3, T4]
+pub fn[T1, T2, T3, T4] U4::from_t3(T3) -> Self[T1, T2, T3, T4]
+pub fn[T1, T2, T3, T4] U4::from_t4(T4) -> Self[T1, T2, T3, T4]
+pub fn[T1, T2, T3, T4] U4::unsafe_as_t1(Self[T1, T2, T3, T4]) -> T1
+pub fn[T1, T2, T3, T4] U4::unsafe_as_t2(Self[T1, T2, T3, T4]) -> T2
+pub fn[T1, T2, T3, T4] U4::unsafe_as_t3(Self[T1, T2, T3, T4]) -> T3
+pub fn[T1, T2, T3, T4] U4::unsafe_as_t4(Self[T1, T2, T3, T4]) -> T4
+
+type U5[T1, T2, T3, T4, T5]
+pub fn[T1, T2, T3, T4, T5] U5::from_t1(T1) -> Self[T1, T2, T3, T4, T5]
+pub fn[T1, T2, T3, T4, T5] U5::from_t2(T2) -> Self[T1, T2, T3, T4, T5]
+pub fn[T1, T2, T3, T4, T5] U5::from_t3(T3) -> Self[T1, T2, T3, T4, T5]
+pub fn[T1, T2, T3, T4, T5] U5::from_t4(T4) -> Self[T1, T2, T3, T4, T5]
+pub fn[T1, T2, T3, T4, T5] U5::from_t5(T5) -> Self[T1, T2, T3, T4, T5]
+pub fn[T1, T2, T3, T4, T5] U5::unsafe_as_t1(Self[T1, T2, T3, T4, T5]) -> T1
+pub fn[T1, T2, T3, T4, T5] U5::unsafe_as_t2(Self[T1, T2, T3, T4, T5]) -> T2
+pub fn[T1, T2, T3, T4, T5] U5::unsafe_as_t3(Self[T1, T2, T3, T4, T5]) -> T3
+pub fn[T1, T2, T3, T4, T5] U5::unsafe_as_t4(Self[T1, T2, T3, T4, T5]) -> T4
+pub fn[T1, T2, T3, T4, T5] U5::unsafe_as_t5(Self[T1, T2, T3, T4, T5]) -> T5
+
+type U6[T1, T2, T3, T4, T5, T6]
+pub fn[T1, T2, T3, T4, T5, T6] U6::from_t1(T1) -> Self[T1, T2, T3, T4, T5, T6]
+pub fn[T1, T2, T3, T4, T5, T6] U6::from_t2(T2) -> Self[T1, T2, T3, T4, T5, T6]
+pub fn[T1, T2, T3, T4, T5, T6] U6::from_t3(T3) -> Self[T1, T2, T3, T4, T5, T6]
+pub fn[T1, T2, T3, T4, T5, T6] U6::from_t4(T4) -> Self[T1, T2, T3, T4, T5, T6]
+pub fn[T1, T2, T3, T4, T5, T6] U6::from_t5(T5) -> Self[T1, T2, T3, T4, T5, T6]
+pub fn[T1, T2, T3, T4, T5, T6] U6::from_t6(T6) -> Self[T1, T2, T3, T4, T5, T6]
+pub fn[T1, T2, T3, T4, T5, T6] U6::unsafe_as_t1(Self[T1, T2, T3, T4, T5, T6]) -> T1
+pub fn[T1, T2, T3, T4, T5, T6] U6::unsafe_as_t2(Self[T1, T2, T3, T4, T5, T6]) -> T2
+pub fn[T1, T2, T3, T4, T5, T6] U6::unsafe_as_t3(Self[T1, T2, T3, T4, T5, T6]) -> T3
+pub fn[T1, T2, T3, T4, T5, T6] U6::unsafe_as_t4(Self[T1, T2, T3, T4, T5, T6]) -> T4
+pub fn[T1, T2, T3, T4, T5, T6] U6::unsafe_as_t5(Self[T1, T2, T3, T4, T5, T6]) -> T5
+pub fn[T1, T2, T3, T4, T5, T6] U6::unsafe_as_t6(Self[T1, T2, T3, T4, T5, T6]) -> T6
+
+type U7[T1, T2, T3, T4, T5, T6, T7]
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::from_t1(T1) -> Self[T1, T2, T3, T4, T5, T6, T7]
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::from_t2(T2) -> Self[T1, T2, T3, T4, T5, T6, T7]
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::from_t3(T3) -> Self[T1, T2, T3, T4, T5, T6, T7]
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::from_t4(T4) -> Self[T1, T2, T3, T4, T5, T6, T7]
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::from_t5(T5) -> Self[T1, T2, T3, T4, T5, T6, T7]
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::from_t6(T6) -> Self[T1, T2, T3, T4, T5, T6, T7]
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::from_t7(T7) -> Self[T1, T2, T3, T4, T5, T6, T7]
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::unsafe_as_t1(Self[T1, T2, T3, T4, T5, T6, T7]) -> T1
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::unsafe_as_t2(Self[T1, T2, T3, T4, T5, T6, T7]) -> T2
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::unsafe_as_t3(Self[T1, T2, T3, T4, T5, T6, T7]) -> T3
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::unsafe_as_t4(Self[T1, T2, T3, T4, T5, T6, T7]) -> T4
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::unsafe_as_t5(Self[T1, T2, T3, T4, T5, T6, T7]) -> T5
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::unsafe_as_t6(Self[T1, T2, T3, T4, T5, T6, T7]) -> T6
+pub fn[T1, T2, T3, T4, T5, T6, T7] U7::unsafe_as_t7(Self[T1, T2, T3, T4, T5, T6, T7]) -> T7
+
+type U8[T1, T2, T3, T4, T5, T6, T7, T8]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::from_t1(T1) -> Self[T1, T2, T3, T4, T5, T6, T7, T8]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::from_t2(T2) -> Self[T1, T2, T3, T4, T5, T6, T7, T8]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::from_t3(T3) -> Self[T1, T2, T3, T4, T5, T6, T7, T8]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::from_t4(T4) -> Self[T1, T2, T3, T4, T5, T6, T7, T8]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::from_t5(T5) -> Self[T1, T2, T3, T4, T5, T6, T7, T8]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::from_t6(T6) -> Self[T1, T2, T3, T4, T5, T6, T7, T8]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::from_t7(T7) -> Self[T1, T2, T3, T4, T5, T6, T7, T8]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::from_t8(T8) -> Self[T1, T2, T3, T4, T5, T6, T7, T8]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::unsafe_as_t1(Self[T1, T2, T3, T4, T5, T6, T7, T8]) -> T1
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::unsafe_as_t2(Self[T1, T2, T3, T4, T5, T6, T7, T8]) -> T2
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::unsafe_as_t3(Self[T1, T2, T3, T4, T5, T6, T7, T8]) -> T3
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::unsafe_as_t4(Self[T1, T2, T3, T4, T5, T6, T7, T8]) -> T4
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::unsafe_as_t5(Self[T1, T2, T3, T4, T5, T6, T7, T8]) -> T5
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::unsafe_as_t6(Self[T1, T2, T3, T4, T5, T6, T7, T8]) -> T6
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::unsafe_as_t7(Self[T1, T2, T3, T4, T5, T6, T7, T8]) -> T7
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8] U8::unsafe_as_t8(Self[T1, T2, T3, T4, T5, T6, T7, T8]) -> T8
+
+type U9[T1, T2, T3, T4, T5, T6, T7, T8, T9]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::from_t1(T1) -> Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::from_t2(T2) -> Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::from_t3(T3) -> Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::from_t4(T4) -> Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::from_t5(T5) -> Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::from_t6(T6) -> Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::from_t7(T7) -> Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::from_t8(T8) -> Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::from_t9(T9) -> Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::unsafe_as_t1(Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]) -> T1
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::unsafe_as_t2(Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]) -> T2
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::unsafe_as_t3(Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]) -> T3
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::unsafe_as_t4(Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]) -> T4
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::unsafe_as_t5(Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]) -> T5
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::unsafe_as_t6(Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]) -> T6
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::unsafe_as_t7(Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]) -> T7
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::unsafe_as_t8(Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]) -> T8
+pub fn[T1, T2, T3, T4, T5, T6, T7, T8, T9] U9::unsafe_as_t9(Self[T1, T2, T3, T4, T5, T6, T7, T8, T9]) -> T9
+
+#external
+pub type Undefined
+pub fn Undefined::new() -> Self
+pub impl Compare for Undefined
+pub impl Default for Undefined
+pub impl Eq for Undefined
+pub impl Hash for Undefined
+pub impl Show for Undefined
+
+// Type aliases
+
+// Traits
+pub trait StringOrSymbol {
+}
+pub impl StringOrSymbol for String
+

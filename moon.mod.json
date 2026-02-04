@@ -1,0 +1,14 @@
+{
+  "name": "sennenki/js",
+  "version": "0.1.0",
+  "deps": {},
+  "readme": "README.mbt.md",
+  "repository": "https://github.com/zvmsbackend/yet-another-js-binding-lib",
+  "license": "Apache-2.0",
+  "keywords": [
+    "javascript",
+    "interoperation"
+  ],
+  "description": "Yet another JS binding library for MoonBit",
+  "preferred-target": "js"
+}
