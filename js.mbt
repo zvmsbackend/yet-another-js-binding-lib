@@ -1,4 +1,6 @@
-fn [T, U] unsafe_as(obj : T) -> U = "%identity"
+///|
+/// Cast Between any two types without runtime check.
+pub fn [T, U] unsafe_as(obj : T) -> U = "%identity"
 
 ///|
 /// Represents TypeScript type `any`.
