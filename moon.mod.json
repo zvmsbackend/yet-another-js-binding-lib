@@ -1,6 +1,6 @@
 {
   "name": "sennenki/js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "deps": {},
   "readme": "README.mbt.md",
   "repository": "https://github.com/zvmsbackend/yet-another-js-binding-lib",
@@ -9,6 +9,6 @@
     "javascript",
     "interoperation"
   ],
-  "description": "Yet another JS binding library for MoonBit",
+  "description": "This package is deprecated. https://mooncakes.io/docs/moonbit-community/js-ffi should be preferred.",
   "preferred-target": "js"
 }
